@@ -1,0 +1,49 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Validation"
+             x:Class="Validation.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid VerticalOptions="Center">
+        <StackLayout>
+            <Label Text="Date:" />
+            <Grid>
+                <BoxView Color="Red">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding Date.IsValid}" Value="True">
+                            <Setter Property="Color" Value="Green"/>
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+                <Entry Text="{Binding Date.Value}" Margin="2"/>
+            </Grid>
+
+            <Label Text="Number:" />
+            <Grid>
+                <BoxView Color="Red">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding Number.IsValid}" Value="True">
+                            <Setter Property="Color" Value="Green"/>
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+                <Entry Text="{Binding Number.Value}" Margin="2"/>
+            </Grid>
+
+            <Label Text="String 5-10:" />
+            <Grid>
+                <BoxView Color="Red">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding Str.IsValid}" Value="True">
+                            <Setter Property="Color" Value="Green"/>
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+                <Entry Text="{Binding Str.Value}" Margin="2"/>
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
